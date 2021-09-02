@@ -1,29 +1,25 @@
-# os-perf
-
-
-# Prerequisite
-# Redhat&CentOS
 # setup to collect process information
-# install sysstat
+## Prerequisite
+### Redhat&CentOS
+#### install sysstat
 [root@cent78-1 os-perf]# yum install -y sysstat
-# start sysstat daemon
 [root@cent78-1 os-perf]# systemstl enable sysstat --now
 
+### Ubuntu 
+#### install sysstat
+root@ubu1804-2:~# apt-get install sysstat
+root@ubu1804-2:~# systemctl enable sysstat --now
 
-# clone the repo
+## Setup pidstat to collect process CPU and memory consumption
 
-[root@cent78-1 os-perf]# git clone https://github.com/ktzyl/os-perf.git
-[root@cent78-1 os-perf]# cd os-perf
+git clone https://github.com/ktzyl/os-perf.git
+cd os-perf
+chmod +x pidstat.sh
+./pidstat.sh
 
-# configure the script
-[root@cent78-1 os-perf]# chmod +x pidstat.sh
-[root@cent78-1 os-perf]# ./pidstat.sh
-
-# put the job to background by ctrl+z
-
-# bring the job to foreground
-# fg ./pidstat.sh
-
-# check generated logs
-[root@cent78-1 os-perf]# ll /tmp/pidperf/
-# stop the job by ctrl+c
+// put the job to background by ctrl+z
+// bring the job to foreground
+fg ./pidstat.sh
+// check generated logs
+ll /tmp/pidperf/
+// stop the job by ctrl+c
